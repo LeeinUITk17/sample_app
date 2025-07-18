@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  static_pages:
+    contact:
+      name: "Le Thanh Tai"
+      page_title: "Contact"
   hello: "Hello world"
