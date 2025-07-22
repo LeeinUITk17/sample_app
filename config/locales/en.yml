@@ -1,37 +1,74 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
+  shared:
+    edit: "Edit"
+    delete: "Delete"
+    confirm_delete: "Are you sure?"
+    error_messages:
+      form_contains:
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
+  layouts:
+    application:
+      base_title: "Ruby on Rails Tutorial Sample App"
+    header:
+      home: "Home"
+      contact: "Contact"
+      users: "Users"
+      profile: "Profile"
+      settings: "Settings"
+      log_out: "Log out"
+      log_in: "Log in"
   static_pages:
     contact:
-      name: "Le Thanh Tai"
       page_title: "Contact"
-  hello: "Hello world"
+      creator_label: "Creator"
+      creator_name: "Le Thanh Tai"
+  sessions:
+    new:
+      title: "Log in"
+      email: "Email"
+      password: "Password"
+      submit: "Log in"
+      new_user_prompt: "New user?"
+      sign_up_link: "Sign up now!"
+    create:
+      invalid_combination: "Invalid email/password combination"
+  microposts:
+    index:
+      title: "All Microposts"
+  users:
+    form:
+      select_gender: "Select Gender"
+    index:
+      title: "All users"
+      new_user: "New User"
+    edit:
+      title: "Edit user"
+      header: "Update your profile"
+      save_changes: "Save changes"
+    new:
+      title: "Sign up"
+      create_account: "Create my account"
+    show:
+      edit_profile: "Edit Profile"
+      user_info: "User Information"
+      birthday: "Birthday"
+      gender: "Gender"
+      joined: "Joined"
+      last_updated: "Last updated"
+    create: 
+      create_success: "User was successfully created."
+    update: 
+      update_success: "User was successfully updated."
+    destroy: 
+      destroy_success: "User was successfully deleted."
+  activerecord:
+    attributes:
+      user:
+        avatar: "Profile Picture"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirmation"
+        birthday: "Birthday"
+        gender: "Gender"

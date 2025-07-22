@@ -16,25 +16,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "User was successfully created."
+      reset_session
+      log_in @user
+      flash[:success] = t(".create_success")
       redirect_to @user
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @user.update(user_params)
-      flash[:success] = "User was successfully updated."
+      flash[:success] = t(".update_success")
       redirect_to @user
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @user.destroy
-    flash[:success] = "User was successfully destroyed."
+    flash[:success] = t(".destroy_success")
     redirect_to users_url
   end
 
@@ -45,6 +47,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :birthday)
+    params.require(:user).permit(
+      :name, :email, :password,
+      :password_confirmation, :birthday, :gender, :avatar
+    )
   end
 end
+

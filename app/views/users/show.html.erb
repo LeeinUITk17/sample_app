@@ -1,12 +1,43 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-      <p>Email: <%= @user.email %></p>
-      <p>Birthday: <%= @user.birthday %></p>
-    </section>
-  </aside>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card profile-card">
+      <div class="card-body text-center">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar.variant(resize_to_limit: [150, 150]), class: "profile-avatar img-circle" %>
+        <% else %>
+          <div class="default-avatar-initials img-circle">
+            <%= @user.name[0].upcase %>
+          </div>
+        <% end %>
+
+        <h2 class="card-title profile-name"><%= @user.name %></h2>
+        <p class="card-text text-muted"><%= @user.email %></p>
+
+        <% if current_user == @user %>
+          <%= link_to t(".edit_profile"), edit_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <div class="card-body">
+        <h4 class="card-title"><%= t(".user_info") %></h4>
+        <dl class="row">
+          <dt class="col-sm-3"><%= t(".birthday") %></dt>
+          <dd class="col-sm-9"><%= @user.birthday %></dd>
+
+          <dt class="col-sm-3"><%= t(".gender") %></dt>
+          <dd class="col-sm-9"><%= @user.gender&.humanize %></dd>
+
+          <dt class="col-sm-3"><%= t(".joined") %></dt>
+          <dd class="col-sm-9"><%= time_ago_in_words(@user.created_at) %></dd>
+
+          <dt class="col-sm-3"><%= t(".last_updated") %></dt>
+          <dd class="col-sm-9"><%= time_ago_in_words(@user.updated_at) %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
 </div>
