@@ -1,13 +1,30 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarHeader">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><%= link_to "Microposts", microposts_path, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "Contact", contact_path, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link" %></li>
-                </ul>
-            </div>
+        <nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to t("layouts.header.home"), root_path %>
+                </li>
+                <li>
+                    <%= link_to t("layouts.header.contact"), contact_path %>
+                </li>
+                <% if logged_in? %>
+                    <li>
+                        <%= link_to t("layouts.header.profile"), current_user %>
+                    </li>
+                    <li>
+                        <%= link_to t("layouts.header.settings"), edit_user_path(current_user) %>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <%= button_to t("layouts.header.log_out"), logout_path, method: :delete, class: "btn btn-link navbar-link" %>
+                    </li>
+                <% else %>
+                    <li>
+                        <%= link_to t("layouts.header.log_in"), login_path %>
+                    </li>
+                <% end %>
+            </ul>
         </nav>
     </div>
 </header>

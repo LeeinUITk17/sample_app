@@ -1,0 +1,67 @@
+vi:
+  shared:
+    edit: "Sửa"
+    delete: "Xoá"
+    confirm_delete: "Bạn có chắc chắn không?"
+    error_messages:
+      form_contains:
+        one: "Biểu mẫu chứa 1 lỗi"
+        other: "Biểu mẫu chứa %{count} lỗi"
+  layouts:
+    application:
+      base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
+    header:
+      home: "Trang chủ"
+      contact: "Liên hệ"
+      users: "Người dùng"
+      profile: "Hồ sơ"
+      settings: "Cài đặt"
+      account: "Tài khoản"
+      log_out: "Đăng xuất"
+      log_in: "Đăng nhập"
+  static_pages:
+    contact:
+      page_title: "Liên hệ"
+      creator_label: "Người tạo"
+      creator_name: "Lê Thanh Tài"
+  sessions:
+    new:
+      title: "Đăng nhập"
+      email: "Email"
+      password: "Mật khẩu"
+      submit: "Đăng nhập"
+      new_user_prompt: "Người dùng mới?"
+      sign_up_link: "Đăng ký ngay!"
+      remember_me_on_this_computer: "Ghi nhớ tôi trên máy tính này"
+    create: 
+      invalid_combination: "Email hoặc mật khẩu không hợp lệ"
+  microposts:
+    index:
+      title: "Tất cả bài đăng"
+  users:
+    form:
+      select_gender: "Chọn giới tính"
+    index:
+      title: "Tất cả người dùng"
+      new_user: "Thêm người dùng"
+    edit:
+      title: "Chỉnh sửa người dùng"
+      header: "Cập nhật hồ sơ của bạn"
+      save_changes: "Lưu thay đổi"
+    new:
+      title: "Đăng ký"
+      create_account: "Tạo tài khoản của tôi"
+    show:
+      edit_profile: "Chỉnh sửa hồ sơ"
+      user_info: "Thông tin người dùng"
+      birthday: "Ngày sinh"
+      gender: "Giới tính"
+      joined: "Đã tham gia"
+      last_updated: "Cập nhật lần cuối"
+    create: 
+      create_success: "Tạo người dùng thành công."
+    update: 
+      update_success: "Cập nhật người dùng thành công."
+    destroy: 
+      destroy_success: "Xoá người dùng thành công."
+      
