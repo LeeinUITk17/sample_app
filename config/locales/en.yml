@@ -13,6 +13,7 @@ en:
     header:
       home: "Home"
       contact: "Contact"
+      account: "Account"
       users: "Users"
       profile: "Profile"
       settings: "Settings"

@@ -38,3 +38,4 @@ Phần 2:
     - Tạo hai virtual attribute: `password` và `password_confirmation`.  
     - Thêm validation yêu cầu mật khẩu tồn tại và khớp với `password_confirmation` khi tạo/cập nhật.  
     - Cung cấp phương thức `authenticate` để kiểm tra mật khẩu với digest đã lưu.
+    
