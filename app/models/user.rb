@@ -24,4 +24,3 @@ class User < ApplicationRecord
                "must be within the last 100 years")
   end
 end
-

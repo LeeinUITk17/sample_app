@@ -54,3 +54,4 @@ gem config --global install "--no-document"
   - **Định dạng dữ liệu**: Ví dụ, tạo helper `format_date(date)` để hiển thị ngày tháng theo chuẩn "dd/mm/YYYY".
   - **Logic hiển thị có điều kiện**: Ví dụ, helper `user_status_tag(user)` để trả về một thẻ `<span>` với class CSS khác nhau tùy theo trạng thái `active`/`inactive` của user.
   - **Tạo các thành phần HTML phức tạp**: Ví dụ, tạo một helper để render một button với icon và nhiều class CSS.
+  
