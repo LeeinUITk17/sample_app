@@ -1,0 +1,16 @@
+vi:
+  layouts:
+    application:
+      base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
+    header:
+      microposts: "Bài viết"
+      contact: "Liên hệ"
+  static_pages:
+    contact:
+      name: "Lê Thanh Tài"
+      page_title: "Liên hệ"
+      creator: "Người tạo: %{name}"
+  microposts:
+    index:
+      title: "Tất cả bài đăng"
+  hello: "Xin chào thế giới"
