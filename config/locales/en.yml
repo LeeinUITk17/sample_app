@@ -28,6 +28,7 @@ en:
       title: "Log in"
       email: "Email"
       password: "Password"
+      remember_me_on_this_computer: "Remember me on this computer"
       submit: "Log in"
       new_user_prompt: "New user?"
       sign_up_link: "Sign up now!"

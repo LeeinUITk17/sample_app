@@ -31,6 +31,7 @@ vi:
       title: "Đăng nhập"
       email: "Email"
       password: "Mật khẩu"
+      remember_me_on_this_computer: "Nhớ tôi trên máy tính này"
       submit: "Đăng nhập"
       new_user_prompt: "Người dùng mới?"
       sign_up_link: "Đăng ký ngay!"
@@ -78,3 +79,4 @@ vi:
         password_confirmation: "Xác nhận mật khẩu"
         birthday: "Ngày sinh"
         gender: "Giới tính"
+        
