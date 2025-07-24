@@ -1,0 +1,38 @@
+vi:
+  shared:
+    error_messages:
+      form_contains:
+        one: "Biểu mẫu chứa 1 lỗi"
+        other: "Biểu mẫu chứa %{count} lỗi"
+
+  layouts:
+    application:
+      base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
+    header:
+      microposts: "Bài đăng"
+      contact: "Liên hệ"
+      users: "Người dùng"
+
+  static_pages:
+    contact:
+      page_title: "Liên hệ"
+      creator_label: "Người tạo"
+      creator_name: "Lê Thanh Tài"
+      
+  microposts:
+    index:
+      title: "Tất cả bài đăng"
+
+  users:
+    index:
+      title: "Tất cả người dùng"
+    new:
+      title: "Đăng ký"
+    show:
+      email: "Email"
+      birthday: "Ngày sinh"
+      not_found: "Không tìm thấy người dùng."
+    create:
+      create_success: "Tạo người dùng thành công."
+
+      

@@ -1,0 +1,38 @@
+en:
+  shared:
+    error_messages:
+      form_contains:
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
+
+  layouts:
+    application:
+      base_title: "Ruby on Rails Tutorial Sample App"
+    header:
+      microposts: "Microposts"
+      contact: "Contact"
+      users: "Users"
+
+  static_pages:
+    contact:
+      page_title: "Contact"
+      creator_label: "Creator"
+      creator_name: "Le Thanh Tai"
+  
+  microposts:
+    index:
+      title: "All Microposts"
+
+  users:
+    index:
+      title: "All users"
+    new:
+      title: "Sign up"
+    show:
+      email: "Email"
+      birthday: "Birthday"
+      not_found: "User not found."
+    create:
+      create_success: "User was successfully created."
+  
+      
