@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :set_user,       only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all
+    @pagy, @users = pagy(User.newest, items: 10)
   end
 
   def show; end
@@ -35,9 +38,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    User.find(params[:id]).destroy
     flash[:success] = t(".destroy_success")
-    redirect_to users_url
+    redirect_to users_url, status: :see_other
   end
 
   private
@@ -51,5 +54,21 @@ class UsersController < ApplicationController
       :name, :email, :password,
       :password_confirmation, :birthday, :gender, :avatar
     )
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t("shared.please_log_in")
+    redirect_to login_url, status: :see_other
+  end
+
+  def correct_user
+    redirect_to(root_url, status: :see_other) unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to(root_url, status: :see_other) unless current_user.admin?
   end
 end

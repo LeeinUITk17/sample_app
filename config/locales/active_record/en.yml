@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        avatar: "Profile Picture"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirmation"
+        birthday: "Birthday"
+        gender: "Gender"
+        

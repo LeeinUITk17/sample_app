@@ -3,6 +3,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     confirm_delete: "Are you sure?"
+    please_log_in: "Please log in."
     error_messages:
       form_contains:
         one: "The form contains 1 error"
@@ -64,13 +65,4 @@ en:
       update_success: "User was successfully updated."
     destroy: 
       destroy_success: "User was successfully deleted."
-  activerecord:
-    attributes:
-      user:
-        avatar: "Profile Picture"
-        name: "Name"
-        email: "Email"
-        password: "Password"
-        password_confirmation: "Confirmation"
-        birthday: "Birthday"
-        gender: "Gender"
+      
