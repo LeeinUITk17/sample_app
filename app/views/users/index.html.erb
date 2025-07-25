@@ -1,0 +1,14 @@
+<% provide(:title, t(".title")) %>
+<h1><%= t(".title") %></h1>
+
+<div class="d-flex justify-content-center">
+    <%== pagy_nav(@pagy) if @pagy %>
+</div>
+
+<ul class="users">
+    <%= render @users %>
+</ul>
+
+<div class="d-flex justify-content-center">
+    <%== pagy_nav(@pagy) if @pagy %>
+</div>

@@ -1,0 +1,11 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        avatar: "Ảnh đại diện"
+        name: "Tên"
+        email: "Email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        birthday: "Ngày sinh"
+        gender: "Giới tính"

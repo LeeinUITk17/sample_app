@@ -3,11 +3,11 @@ vi:
     edit: "Sửa"
     delete: "Xoá"
     confirm_delete: "Bạn có chắc chắn không?"
+    please_log_in: "Vui lòng đăng nhập."
     error_messages:
       form_contains:
         one: "Biểu mẫu chứa 1 lỗi"
         other: "Biểu mẫu chứa %{count} lỗi"
-
   layouts:
     application:
       base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
@@ -20,13 +20,11 @@ vi:
       settings: "Cài đặt"
       log_out: "Đăng xuất"
       log_in: "Đăng nhập"
-
   static_pages:
     contact:
       page_title: "Liên hệ"
       creator_label: "Người tạo"
       creator_name: "Lê Thanh Tài"
-
   sessions:
     new:
       title: "Đăng nhập"
@@ -38,11 +36,9 @@ vi:
       sign_up_link: "Đăng ký ngay!"
     create: 
       invalid_combination: "Email hoặc mật khẩu không hợp lệ"
-
   microposts:
     index:
       title: "Tất cả bài đăng"
-
   users:
     form:
       select_gender: "Chọn giới tính"
@@ -69,15 +65,4 @@ vi:
       update_success: "Cập nhật người dùng thành công."
     destroy: 
       destroy_success: "Xoá người dùng thành công."
-
-  activerecord:
-    attributes:
-      user:
-        avatar: "Ảnh đại diện"
-        name: "Tên"
-        email: "Email"
-        password: "Mật khẩu"
-        password_confirmation: "Xác nhận mật khẩu"
-        birthday: "Ngày sinh"
-        gender: "Giới tính"
-        
+      
