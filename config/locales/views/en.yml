@@ -1,67 +1,38 @@
 en:
   shared:
-    edit: "Edit"
-    delete: "Delete"
-    confirm_delete: "Are you sure?"
     error_messages:
       form_contains:
         one: "The form contains 1 error"
         other: "The form contains %{count} errors"
+
   layouts:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
     header:
-      home: "Home"
+      microposts: "Microposts"
       contact: "Contact"
       users: "Users"
-      profile: "Profile"
-      settings: "Settings"
-      account: "Account" 
-      log_out: "Log out"
-      log_in: "Log in"
+
   static_pages:
     contact:
       page_title: "Contact"
       creator_label: "Creator"
       creator_name: "Le Thanh Tai"
-  sessions:
-    new:
-      title: "Log in"
-      email: "Email"
-      password: "Password"
-      submit: "Log in"
-      new_user_prompt: "New user?"
-      sign_up_link: "Sign up now!"
-      remember_me_on_this_computer: "Remember me on this computer"
-    create:
-      invalid_combination: "Invalid email/password combination"
+  
   microposts:
     index:
       title: "All Microposts"
+
   users:
-    form:
-      select_gender: "Select Gender"
     index:
       title: "All users"
-      new_user: "New User"
-    edit:
-      title: "Edit user"
-      header: "Update your profile"
-      save_changes: "Save changes"
     new:
       title: "Sign up"
-      create_account: "Create my account"
     show:
-      edit_profile: "Edit Profile"
-      user_info: "User Information"
+      email: "Email"
       birthday: "Birthday"
-      gender: "Gender"
-      joined: "Joined"
-      last_updated: "Last updated"
-    create: 
+      not_found: "User not found."
+    create:
       create_success: "User was successfully created."
-    update: 
-      update_success: "User was successfully updated."
-    destroy: 
-      destroy_success: "User was successfully deleted."
+  
       
