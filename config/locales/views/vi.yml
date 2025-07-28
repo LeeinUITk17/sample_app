@@ -30,6 +30,7 @@ vi:
       title: "Đăng nhập"
       email: "Email"
       password: "Mật khẩu"
+      forgot_password: "Quên mật khẩu"
       remember_me_on_this_computer: "Nhớ tôi trên máy tính này"
       submit: "Đăng nhập"
       new_user_prompt: "Người dùng mới?"
@@ -71,4 +72,20 @@ vi:
     edit:
       account_activated: "Tài khoản đã được kích hoạt!"
       invalid_activation_link: "Link kích hoạt không hợp lệ"
-      
+  password_resets:
+    new:
+      title: "Quên mật khẩu"
+      email: "Email"
+      submit: "Gửi"
+    create:
+      email_sent: "Email chứa hướng dẫn đặt lại mật khẩu đã được gửi."
+      email_not_found: "Không tìm thấy địa chỉ email."
+    edit:
+      title: "Đặt lại mật khẩu"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+      submit: "Cập nhật mật khẩu"
+    update:
+      password_empty: "không thể để trống"
+      password_reset_success: "Mật khẩu đã được đặt lại thành công."
+      password_reset_expired: "Yêu cầu đặt lại mật khẩu đã hết hạn."

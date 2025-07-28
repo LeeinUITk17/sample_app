@@ -30,6 +30,7 @@ en:
       title: "Log in"
       email: "Email"
       password: "Password"
+      forgot_password: "Forgot password"
       remember_me_on_this_computer: "Remember me on this computer"
       submit: "Log in"
       new_user_prompt: "New user?"
@@ -71,4 +72,21 @@ en:
     edit:
       account_activated: "Account activated!"
       invalid_activation_link: "Invalid activation link"
+  password_resets:
+    new:
+      title: "Forgot password"
+      email: "Email"
+      submit: "Submit"
+    create:
+      email_sent: "Email sent with password reset instructions."
+      email_not_found: "Email address not found."
+    edit:
+      title: "Reset password"
+      password: "Password"
+      password_confirmation: "Confirmation"
+      submit: "Update password"
+    update:
+      password_empty: "can't be empty"
+      password_reset_success: "Password has been reset."
+      password_reset_expired: "Password reset has expired."
       
