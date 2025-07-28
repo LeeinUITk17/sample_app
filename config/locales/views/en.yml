@@ -36,6 +36,7 @@ en:
       sign_up_link: "Sign up now!"
     create:
       invalid_combination: "Invalid email/password combination"
+      account_not_activated_html: "Account not activated. Please check your email for the activation link."
   microposts:
     index:
       title: "All Microposts"
@@ -61,8 +62,13 @@ en:
       last_updated: "Last updated"
     create: 
       create_success: "User was successfully created."
+      activation_email_sent: "Please check your email to activate your account."
     update: 
       update_success: "User was successfully updated."
     destroy: 
       destroy_success: "User was successfully deleted."
+  account_activations:
+    edit:
+      account_activated: "Account activated!"
+      invalid_activation_link: "Invalid activation link"
       

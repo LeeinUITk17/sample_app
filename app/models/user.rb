@@ -1,13 +1,16 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   has_one_attached :avatar
   has_secure_password
 
   enum gender: {female: 0, male: 1, other: 2}
 
-  before_save{email.downcase!}
+  before_save   :downcase_email
+  before_create :create_activation_digest
+
   scope :newest, ->{order(created_at: :desc)}
+
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
@@ -35,27 +38,43 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticated? remember_token
-    return false if remember_digest.nil?
+  def authenticated? attribute, token
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
 
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget
     update_attribute(:remember_digest, nil)
   end
 
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   private
+
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 
   def birthday_in_the_past_100_years
     return if birthday.blank?
 
-    if birthday > Time.zone.today
-      errors.add(:birthday, "can't be in the future")
-    end
+    errors.add(:birthday, :in_the_future) if birthday > Time.zone.today
 
     return unless birthday < 100.years.ago.to_date
 
-    errors.add(:birthday, "must be within the last 100 years")
+    errors.add(:birthday, :not_in_100_years)
   end
 end

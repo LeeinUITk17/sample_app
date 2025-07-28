@@ -36,6 +36,7 @@ vi:
       sign_up_link: "Đăng ký ngay!"
     create: 
       invalid_combination: "Email hoặc mật khẩu không hợp lệ"
+      account_not_activated_html: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email để lấy link kích hoạt." 
   microposts:
     index:
       title: "Tất cả bài đăng"
@@ -61,8 +62,13 @@ vi:
       last_updated: "Cập nhật lần cuối"
     create: 
       create_success: "Tạo người dùng thành công."
+      activation_email_sent: "Vui lòng kiểm tra email để kích hoạt tài khoản của bạn."
     update: 
       update_success: "Cập nhật người dùng thành công."
     destroy: 
       destroy_success: "Xoá người dùng thành công."
+  account_activations:
+    edit:
+      account_activated: "Tài khoản đã được kích hoạt!"
+      invalid_activation_link: "Link kích hoạt không hợp lệ"
       

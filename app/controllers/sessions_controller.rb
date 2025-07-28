@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
-      log_in_and_remember(user)
+      handle_successful_login(user)
     else
       flash.now[:danger] = t(".invalid_combination")
       render :new, status: :unprocessable_entity
@@ -17,6 +17,14 @@ class SessionsController < ApplicationController
   end
 
   private
+  def handle_successful_login user
+    if user.activated?
+      log_in_and_remember(user)
+    else
+      flash[:warning] = t(".account_not_activated_html")
+      redirect_to root_url
+    end
+  end
 
   def log_in_and_remember user
     forwarding_url = session[:forwarding_url]
