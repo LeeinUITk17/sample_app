@@ -3,28 +3,24 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "3.2.2"
 
-# Main gems in alphabetical order
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "bootstrap-sass", "~> 3.4.1"
 gem "image_processing", "~> 1.2"
-gem "importmap-rails"
 gem "jbuilder"
+gem "jquery-rails", "~> 4.6"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.5"
 gem "rails-i18n", "~> 7.0.0"
-gem "sassc-rails"
+gem "sassc-rails", "~> 2.1.2"
 gem "sprockets-rails"
-gem "stimulus-rails"
-gem "turbo-rails"
+gem "turbolinks", "~> 5.2"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
+# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html

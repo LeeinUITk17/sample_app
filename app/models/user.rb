@@ -1,18 +1,23 @@
 class User < ApplicationRecord
-  before_save{email.downcase!}
-
-  scope :newest, ->{order(created_at: :desc)}
-
-  validates :name, presence: true, length: {maximum: 50}
+  PASSWORD_LENGTH_MIN = 6
+  NAME_LENGTH_MAX = 50
+  EMAIL_LENGTH_MAX = 255
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: {maximum: 255},
+  USER_PERMIT = %i(name email password password_confirmation birthday gender
+avatar).freeze
+  has_one_attached :avatar
+  has_secure_password
+  enum gender: {female: 0, male: 1, other: 2}
+  before_save{email.downcase!}
+  scope :newest, ->{order(created_at: :desc)}
+  validates :name, presence: true, length: {maximum: NAME_LENGTH_MAX}
+  validates :email, presence: true, length: {maximum: EMAIL_LENGTH_MAX},
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
-
+  validates :password, presence: true, length: {minimum: PASSWORD_LENGTH_MIN},
+allow_nil: true
   validate :birthday_in_the_past_100_years
-
   private
-
   def birthday_in_the_past_100_years
     return if birthday.blank?
 
