@@ -70,3 +70,118 @@ body {
   border-radius: 5px;
 }
 
+/* Microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .user {
+    margin-top: 5px;
+    padding-top: 0;
+  }
+
+  .content {
+    display: block;
+    margin-left: 60px;
+    
+    img {
+      display: block;
+      padding: 5px 0;
+      max-width: 100%; // Đảm bảo ảnh không tràn ra ngoài
+      border-radius: 5px;
+    }
+  }
+
+  .timestamp {
+    color: #777;
+    display: block;
+    margin-left: 60px;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+}
+
+aside {
+  section.user_info {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+
+    .gravatar {
+      margin: 0 auto 10px;
+      float: none;
+      border-radius: 50%;
+    }
+    
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    span {
+      color: #777;
+    }
+    
+    .edit-profile-link {
+      margin-top: 15px;
+    }
+  }
+
+  section.user_details {
+    padding-top: 10px;
+    
+    h4 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    dl {
+      dt {
+        font-weight: bold;
+        float: left;
+        width: 40%;
+        clear: left;
+      }
+      dd {
+        margin-left: 45%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.micropost_form {
+  margin-top: 20px;
+}
+
+.user_info {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+
+  h1 {
+    font-size: 1.4em;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 15px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  span {
+    display: block;
+    margin-bottom: 3px;
+  }
+}

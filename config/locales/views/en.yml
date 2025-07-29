@@ -1,13 +1,4 @@
 en:
-  shared:
-    edit: "Edit"
-    delete: "Delete"
-    confirm_delete: "Are you sure?"
-    please_log_in: "Please log in."
-    error_messages:
-      form_contains:
-        one: "The form contains 1 error"
-        other: "The form contains %{count} errors"
   layouts:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
@@ -41,6 +32,13 @@ en:
   microposts:
     index:
       title: "All Microposts"
+    micropost: 
+      posted: "Posted"
+      ago: "ago."
+    create: 
+      created_success: "Micropost created!"
+    destroy: 
+      deleted_success: "Micropost deleted."
   users:
     form:
       select_gender: "Select Gender"
@@ -61,6 +59,7 @@ en:
       gender: "Gender"
       joined: "Joined"
       last_updated: "Last updated"
+      microposts_count: "Microposts (%{count})"
     create: 
       create_success: "User was successfully created."
       activation_email_sent: "Please check your email to activate your account."
@@ -89,4 +88,20 @@ en:
       password_empty: "can't be empty"
       password_reset_success: "Password has been reset."
       password_reset_expired: "Password reset has expired."
+  shared:
+    user_info:
+      view_profile: "view my profile"
+    micropost_form:
+      compose_placeholder: "Compose new micropost..."
+      post_button: "Post"
+    feed:
+      feed_title: "Micropost Feed"
+    edit: "Edit"
+    delete: "Delete"
+    confirm_delete: "Are you sure?"
+    please_log_in: "Please log in."
+    error_messages:
+      form_contains:
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
       

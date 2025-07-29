@@ -1,43 +1,47 @@
 <% provide(:title, @user.name) %>
 
-<div class="row justify-content-center">
-  <div class="col-md-8">
-    <div class="card profile-card">
-      <div class="card-body text-center">
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar.variant(resize_to_limit: [150, 150]), class: "profile-avatar img-circle" %>
-        <% else %>
-          <div class="default-avatar-initials img-circle">
-            <%= @user.name[0].upcase %>
-          </div>
-        <% end %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar.variant(resize_to_limit: [150, 150]), class: "gravatar" %>
+      <% else %>
+        <%= gravatar_for @user, size: 150 %>
+      <% end %>
 
-        <h2 class="card-title profile-name"><%= @user.name %></h2>
-        <p class="card-text text-muted"><%= @user.email %></p>
-
-        <% if current_user == @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= @user.email %></span>
+      <% if current_user?(@user) %>
+        <div class="edit-profile-link">
           <%= link_to t(".edit_profile"), edit_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
-        <% end %>
+        </div>
+      <% end %>
+    </section>
+
+    <section class="user_details">
+      <h4><%= t(".user_info") %></h4>
+      <dl>
+        <dt><%= t(".birthday") %></dt>
+        <dd><%= @user.birthday %></dd>
+
+        <dt><%= t(".gender") %></dt>
+        <dd><%= @user.gender&.humanize %></dd>
+
+        <dt><%= t(".joined") %></dt>
+        <dd><%= time_ago_in_words(@user.created_at) %> ago</dd>
+      </dl>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3><%= t(".microposts_count", count: @user.microposts.count) %></h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <div class="d-flex justify-content-center">
+        <%== pagy_nav(@pagy) if @pagy %>
       </div>
-
-      <hr>
-
-      <div class="card-body">
-        <h4 class="card-title"><%= t(".user_info") %></h4>
-        <dl class="row">
-          <dt class="col-sm-3"><%= t(".birthday") %></dt>
-          <dd class="col-sm-9"><%= @user.birthday %></dd>
-
-          <dt class="col-sm-3"><%= t(".gender") %></dt>
-          <dd class="col-sm-9"><%= @user.gender&.humanize %></dd>
-
-          <dt class="col-sm-3"><%= t(".joined") %></dt>
-          <dd class="col-sm-9"><%= time_ago_in_words(@user.created_at) %></dd>
-
-          <dt class="col-sm-3"><%= t(".last_updated") %></dt>
-          <dd class="col-sm-9"><%= time_ago_in_words(@user.updated_at) %></dd>
-        </dl>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

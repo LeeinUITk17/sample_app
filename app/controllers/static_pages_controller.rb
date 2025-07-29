@@ -1,4 +1,11 @@
 class StaticPagesController < ApplicationController
+  def home
+    return unless logged_in?
+
+    @micropost = current_user.microposts.build
+    @pagy, @feed_items = pagy(current_user.feed, items: 10)
+  end
+
   def contact
     @name = t("static_pages.contact.name")
   end

@@ -1,13 +1,4 @@
 vi:
-  shared:
-    edit: "Sửa"
-    delete: "Xoá"
-    confirm_delete: "Bạn có chắc chắn không?"
-    please_log_in: "Vui lòng đăng nhập."
-    error_messages:
-      form_contains:
-        one: "Biểu mẫu chứa 1 lỗi"
-        other: "Biểu mẫu chứa %{count} lỗi"
   layouts:
     application:
       base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
@@ -41,6 +32,13 @@ vi:
   microposts:
     index:
       title: "Tất cả bài đăng"
+    micropost: 
+      posted: "Đăng"
+      ago: "trước."
+    create: 
+      created_success: "Bài đăng đã được tạo!"
+    destroy: 
+      deleted_success: "Bài đăng đã được xóa."
   users:
     form:
       select_gender: "Chọn giới tính"
@@ -61,6 +59,7 @@ vi:
       gender: "Giới tính"
       joined: "Đã tham gia"
       last_updated: "Cập nhật lần cuối"
+      microposts_count: "Bài đăng (%{count})" 
     create: 
       create_success: "Tạo người dùng thành công."
       activation_email_sent: "Vui lòng kiểm tra email để kích hoạt tài khoản của bạn."
@@ -89,3 +88,20 @@ vi:
       password_empty: "không thể để trống"
       password_reset_success: "Mật khẩu đã được đặt lại thành công."
       password_reset_expired: "Yêu cầu đặt lại mật khẩu đã hết hạn."
+  shared:
+    user_info:
+      view_profile: "xem hồ sơ của tôi"
+    micropost_form:
+      compose_placeholder: "Soạn bài đăng mới..."
+      post_button: "Đăng"
+    feed:
+      feed_title: "Bảng tin Micropost"
+    delete: "Xoá"
+    edit: "Sửa"
+    delete: "Xoá"
+    confirm_delete: "Bạn có chắc chắn không?"
+    please_log_in: "Vui lòng đăng nhập."
+    error_messages:
+      form_contains:
+        one: "Biểu mẫu chứa 1 lỗi"
+        other: "Biểu mẫu chứa %{count} lỗi"

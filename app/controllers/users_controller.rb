@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     @pagy, @users = pagy(User.newest, items: 10)
   end
 
-  def show; end
+  def show
+    @pagy, @microposts = pagy(@user.microposts, items: 10)
+  end
 
   def new
     @user = User.new
@@ -53,14 +55,6 @@ class UsersController < ApplicationController
       :name, :email, :password,
       :password_confirmation, :birthday, :gender, :avatar
     )
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t("shared.please_log_in")
-    redirect_to login_url, status: :see_other
   end
 
   def correct_user
