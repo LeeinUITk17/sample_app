@@ -12,11 +12,17 @@
                 <%= f.label :password, t(".password") %>
                 <%= f.password_field :password, class: 'form-control' %>
             </div>
+            <div class="form-group">
+                <%= f.label :remember_me, class: "checkbox inline" do %>
+                    <%= f.check_box :remember_me %>
+                    <span><%= t(".remember_me_on_this_computer") %></span>
+                <% end %>
+            </div>
             <%= f.submit t(".submit"), class: "btn btn-primary" %>
         <% end %>
         <p>
-          <%= t(".new_user_prompt") %>
-          <%= link_to t(".sign_up_link"), signup_path %>
+            <%= t(".new_user_prompt") %>
+            <%= link_to t(".sign_up_link"), signup_path %>
         </p>
     </div>
 </div>
