@@ -1,0 +1,7 @@
+<li>
+    <%= gravatar_for user, size: User::AVATAR_SIZE_LIST %>
+    <%= link_to user.name, user %>
+    <% if current_user.admin? && !current_user?(user) %>
+        | <%= link_to t("shared.delete"), user, data: { "turbo-method": :delete, "turbo-confirm": t("shared.confirm_delete") } %>
+    <% end %>
+</li>

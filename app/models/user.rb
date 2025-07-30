@@ -2,6 +2,8 @@ class User < ApplicationRecord
   PASSWORD_LENGTH_MIN = 6
   NAME_LENGTH_MAX = 50
   EMAIL_LENGTH_MAX = 255
+  PAGINATE_PER = 10
+  AVATAR_SIZE_LIST = 50
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i
   USER_PERMIT = %i(name email password password_confirmation birthday gender
 avatar).freeze
