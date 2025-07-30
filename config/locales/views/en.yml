@@ -67,6 +67,14 @@ en:
       update_success: "User was successfully updated."
     destroy: 
       destroy_success: "User was successfully deleted."
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
   account_activations:
     edit:
       account_activated: "Account activated!"
@@ -104,4 +112,7 @@ en:
       form_contains:
         one: "The form contains 1 error"
         other: "The form contains %{count} errors"
+    stats:
+      following: "following"
+      followers: "followers"
       

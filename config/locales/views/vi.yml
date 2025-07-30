@@ -67,6 +67,14 @@ vi:
       update_success: "Cập nhật người dùng thành công."
     destroy: 
       destroy_success: "Xoá người dùng thành công."
+    follow:
+      follow: "Theo dõi"
+    unfollow:
+      unfollow: "Bỏ theo dõi"
+    following:
+      title: "Đang theo dõi"
+    followers:
+      title: "Người theo dõi"
   account_activations:
     edit:
       account_activated: "Tài khoản đã được kích hoạt!"
@@ -105,3 +113,6 @@ vi:
       form_contains:
         one: "Biểu mẫu chứa 1 lỗi"
         other: "Biểu mẫu chứa %{count} lỗi"
+    stats:
+      following: "đang theo dõi"
+      followers: "người theo dõi"
