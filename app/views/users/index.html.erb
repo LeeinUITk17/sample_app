@@ -1,12 +1,14 @@
 <% provide(:title, t(".title")) %>
 <h1><%= t(".title") %></h1>
 
-<%= link_to t(".new_user"), new_user_path, class: "btn btn-primary" %>
+<div class="d-flex justify-content-center">
+    <%== pagy_nav(@pagy) if @pagy %>
+</div>
 
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+    <%= render @users %>
 </ul>
+
+<div class="d-flex justify-content-center">
+    <%== pagy_nav(@pagy) if @pagy %>
+</div>

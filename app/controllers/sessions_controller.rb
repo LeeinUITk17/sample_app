@@ -8,17 +8,19 @@ class SessionsController < ApplicationController
   # POST /login
   def create
     log_in_and_remember(@user)
-    redirect_to @user
   end
 
   # DELETE /logout
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to root_url, status: :see_other
   end
 
   private
+
   def log_in_and_remember user
+    forwarding_url = session[:forwarding_url]
+
     reset_session
     log_in user
     if params.dig(:session,
@@ -27,6 +29,7 @@ class SessionsController < ApplicationController
     else
       forget(user)
     end
+    redirect_to forwarding_url || user
   end
 
   def find_user_and_authenticate

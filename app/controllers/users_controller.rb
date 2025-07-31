@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: %i(index edit update destroy)
+  before_action :set_user,       only: %i(show edit update destroy)
+  before_action :correct_user,   only: %i(edit update)
+  before_action :admin_user,     only: :destroy
 
   # GET /users
   def index
-    @users = User.newest
+    @pagy, @users = pagy(User.newest, items: User::PAGINATE_PER)
   end
 
   # GET /users/:id
@@ -47,7 +50,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = t(".destroy_fail")
     end
-    redirect_to users_url
+    redirect_to users_url, status: :see_other
   end
 
   private
@@ -57,10 +60,32 @@ class UsersController < ApplicationController
     return if @user
 
     flash[:danger] = t("users.show.not_found")
-    redirect_to root_url
+    redirect_to root_url, status: :see_other
   end
 
   def user_params
     params.require(:user).permit(User::USER_PERMIT)
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t("shared.please_log_in")
+    redirect_to login_url, status: :see_other
+  end
+
+  def correct_user
+    return if current_user?(@user)
+
+    flash[:danger] = t("shared.not_authorized")
+    redirect_to root_url, status: :see_other
+  end
+
+  def admin_user
+    return if current_user.admin?
+
+    flash[:danger] = t("shared.require_admin")
+    redirect_to root_url, status: :see_other
   end
 end
