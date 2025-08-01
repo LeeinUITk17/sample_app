@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   REMEMBER_ME_CHECKED = "1".freeze
+
   before_action :find_user_and_authenticate, only: :create
+  before_action :check_user_activated,       only: :create
 
   # GET /login
   def new; end
@@ -20,11 +22,9 @@ class SessionsController < ApplicationController
 
   def log_in_and_remember user
     forwarding_url = session[:forwarding_url]
-
     reset_session
     log_in user
-    if params.dig(:session,
-                  :remember_me) == REMEMBER_ME_CHECKED
+    if params.dig(:session, :remember_me) == REMEMBER_ME_CHECKED
       remember(user)
     else
       forget(user)
@@ -35,12 +35,17 @@ class SessionsController < ApplicationController
   def find_user_and_authenticate
     email = params.dig(:session, :email)&.downcase
     password = params.dig(:session, :password)
-
     @user = User.find_by(email:)
-
     return if @user&.authenticate(password)
 
     flash.now[:danger] = t(".invalid_combination")
     render :new, status: :unprocessable_entity
+  end
+
+  def check_user_activated
+    return if @user.activated?
+
+    flash[:warning] = t(".account_not_activated_html")
+    redirect_to root_url
   end
 end
