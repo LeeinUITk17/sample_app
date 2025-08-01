@@ -1,4 +1,5 @@
 vi:
+  app_name: "Ứng dụng Mẫu"
   shared:
     edit: "Sửa"
     delete: "Xoá"
@@ -36,6 +37,7 @@ vi:
       sign_up_link: "Đăng ký ngay!"
     create: 
       invalid_combination: "Email hoặc mật khẩu không hợp lệ"
+      account_not_activated_html: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email để lấy link kích hoạt."
   microposts:
     index:
       title: "Tất cả bài đăng"
@@ -62,8 +64,19 @@ vi:
       not_found: "Không tìm thấy người dùng."
     create: 
       create_success: "Tạo người dùng thành công."
+      activation_email_sent: "Vui lòng kiểm tra email để kích hoạt tài khoản của bạn."
     update: 
       update_success: "Cập nhật người dùng thành công."
     destroy: 
       destroy_success: "Xoá người dùng thành công."    
       destroy_fail: "Xoá người dùng thất bại."
+  user_mailer:
+    account_activation:
+      subject: "Kích hoạt tài khoản"
+      greeting: "Chào %{user_name},"
+      welcome_line_1: "Chào mừng bạn đến với Ứng dụng mẫu! Nhấn vào liên kết bên dưới để kích hoạt tài khoản của bạn:"
+      activate_link_text: "Kích hoạt"
+  account_activations:
+    edit:
+      success: "Tài khoản đã được kích hoạt!"
+      invalid_link: "Liên kết kích hoạt không hợp lệ."

@@ -1,4 +1,5 @@
 en:
+  app_name: "Sample App"
   shared:
     edit: "Edit"
     delete: "Delete"
@@ -36,6 +37,7 @@ en:
       sign_up_link: "Sign up now!"
     create:
       invalid_combination: "Invalid email/password combination"
+      account_not_activated_html: "Account not activated. Check your email for the activation link."
   microposts:
     index:
       title: "All Microposts"
@@ -62,8 +64,19 @@ en:
       not_found: "User not found."
     create: 
       create_success: "User was successfully created."
+      activation_email_sent: "Please check your email to activate your account."
     update: 
       update_success: "User was successfully updated."
     destroy: 
       destroy_success: "User was successfully deleted."  
-      destroy_fail: "Failed to delete user."  
+      destroy_fail: "Failed to delete user." 
+  user_mailer:
+    account_activation:
+      subject: "Account activation"
+      greeting: "Hi %{user_name},"
+      welcome_line_1: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate_link_text: "Activate"
+  account_activations:
+    edit:
+      success: "Account activated!"
+      invalid_link: "Invalid activation link." 
