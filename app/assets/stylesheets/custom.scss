@@ -71,3 +71,14 @@ body {
   margin-right: 10px;
   border-radius: 5px;
 }
+
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.new-user-prompt {
+  margin-top: 15px;
+}
