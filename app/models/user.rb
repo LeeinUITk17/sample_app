@@ -4,11 +4,13 @@ class User < ApplicationRecord
   EMAIL_LENGTH_MAX = 255
   PAGINATE_PER = 10
   AVATAR_SIZE_LIST = 50
+  PASSWORD_RESET_EXPIRES_IN = 2.hours
+  MAX_YEARS_AGO_FOR_BIRTHDAY = 100.years
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i
   USER_PERMIT = %i(name email password password_confirmation birthday gender
 avatar).freeze
 
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   has_one_attached :avatar
   has_secure_password
@@ -65,6 +67,20 @@ length: {minimum: PASSWORD_LENGTH_MIN}, allow_nil: true
     UserMailer.account_activation(self).deliver_now
   end
 
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns(reset_digest:  User.digest(reset_token),
+                   reset_sent_at: Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < PASSWORD_RESET_EXPIRES_IN.ago
+  end
+
   private
 
   def downcase_email
@@ -80,7 +96,7 @@ length: {minimum: PASSWORD_LENGTH_MIN}, allow_nil: true
     return if birthday.blank?
 
     errors.add(:birthday, :in_the_future) if birthday > Time.zone.today
-    return unless birthday < 100.years.ago.to_date
+    return unless birthday < MAX_YEARS_AGO_FOR_BIRTHDAY.ago.to_date
 
     errors.add(:birthday, :not_in_100_years)
   end
