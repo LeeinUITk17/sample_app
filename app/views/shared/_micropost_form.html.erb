@@ -1,0 +1,11 @@
+<%= form_with(model: @micropost, local: true) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="field">
+        <%= f.text_area :content, placeholder: t(".compose_placeholder") %>
+    </div>
+    <div class="form-group">
+        <%= f.label :image, class: "form-label" %>
+        <%= f.file_field :image, class: "form-control", accept: Micropost::VALID_IMAGE_TYPES.join(",") %>
+    </div>
+    <%= f.submit t(".post_button"), class: "btn btn-primary" %>
+<% end %>

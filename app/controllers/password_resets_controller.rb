@@ -54,6 +54,7 @@ class PasswordResetsController < ApplicationController
 
   def valid_user
     return if @user.activated? && @user.authenticated?(:reset, params[:id])
+
     flash[:danger] = t(".invalid_link")
     redirect_to root_url
   end
