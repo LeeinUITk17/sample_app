@@ -4,10 +4,10 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "active_storage_validations"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "bootstrap-sass", "~> 3.4.1"
-gem "dotenv-rails"
 gem "faker"
 gem "image_processing", "~> 1.2"
 gem "jbuilder"
@@ -28,6 +28,7 @@ gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "dotenv-rails"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false

@@ -27,4 +27,9 @@ vi:
             birthday:
               blank: "không được để trống"
               in_the_future: "không thể là ngày trong tương lai"
-              not_in_100_years: "phải trong vòng 100 năm trở lại đây"        
+              not_in_100_years: "phải trong vòng 100 năm trở lại đây"
+        micropost:
+          attributes:
+            image:
+              must_be_valid_image_format: "phải là định dạng ảnh hợp lệ (JPEG, GIF, hoặc PNG)"
+              should_be_less_than_5mb: "nên nhỏ hơn 5MB"        

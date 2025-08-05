@@ -1,22 +1,31 @@
 vi:
   app_name: "Ứng dụng Mẫu"
   shared:
-    edit: "Sửa"
-    delete: "Xoá"
-    confirm_delete: "Bạn có chắc chắn không?"
-    please_log_in: "Vui lòng đăng nhập."
     error_messages:
       form_contains:
         one: "Biểu mẫu chứa 1 lỗi"
         other: "Biểu mẫu chứa %{count} lỗi"
+    user_info:
+      view_profile: "xem hồ sơ của tôi"
+    micropost_form:
+      compose_placeholder: "Soạn bài đăng mới..."
+      post_button: "Đăng"
+    feed:
+      feed_title: "Bảng tin Micropost"
+    edit: "Sửa"
+    delete: "Xóa"
+    confirm_delete: "Bạn có chắc không?"
+    please_log_in: "Vui lòng đăng nhập."
+    not_authorized: "Bạn không có quyền thực hiện hành động này."
+    require_admin: "Yêu cầu quyền quản trị viên."
   layouts:
     application:
-      base_title: "Ứng dụng mẫu Ruby on Rails" # Sửa lại cho đúng tên
+      base_title: "Ứng dụng mẫu Ruby on Rails"
     header:
       home: "Trang chủ"
       contact: "Liên hệ"
-      users: "Người dùng"
       account: "Tài khoản"
+      users: "Người dùng"
       profile: "Hồ sơ"
       settings: "Cài đặt"
       log_out: "Đăng xuất"
@@ -36,12 +45,21 @@ vi:
       submit: "Đăng nhập"
       new_user_prompt: "Người dùng mới?"
       sign_up_link: "Đăng ký ngay!"
-    create: 
+    create:
       invalid_combination: "Email hoặc mật khẩu không hợp lệ"
       account_not_activated_html: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email để lấy link kích hoạt."
   microposts:
     index:
       title: "Tất cả bài đăng"
+    micropost: 
+      posted: "Đã đăng"
+      ago: "trước."
+    create: 
+      created_success: "Đã tạo bài đăng!"
+    destroy: 
+      deleted_success: "Đã xóa bài đăng"
+      deleted_fail: "Xóa bài đăng thất bại."
+    not_found: "Không tìm thấy bài đăng."
   users:
     form:
       select_gender: "Chọn giới tính"
@@ -62,6 +80,7 @@ vi:
       gender: "Giới tính"
       joined: "Đã tham gia"
       last_updated: "Cập nhật lần cuối"
+      microposts_count: "Bài đăng (%{count})"
       not_found: "Không tìm thấy người dùng."
     create: 
       create_success: "Tạo người dùng thành công."
@@ -69,15 +88,15 @@ vi:
     update: 
       update_success: "Cập nhật người dùng thành công."
     destroy: 
-      destroy_success: "Xoá người dùng thành công."    
-      destroy_fail: "Xoá người dùng thất bại."
+      destroy_success: "Xóa người dùng thành công."  
+      destroy_fail: "Xóa người dùng thất bại."
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"
       greeting: "Chào %{user_name},"
       welcome_line_1: "Chào mừng bạn đến với Ứng dụng mẫu! Nhấn vào liên kết bên dưới để kích hoạt tài khoản của bạn:"
       activate_link_text: "Kích hoạt"
-    password_reset: 
+    password_reset:
       subject: "Đặt lại mật khẩu"
       header: "Đặt lại mật khẩu"
       instruction: "Để đặt lại mật khẩu của bạn, hãy nhấn vào liên kết bên dưới:"
@@ -89,9 +108,10 @@ vi:
       success: "Tài khoản đã được kích hoạt!"
       invalid_link: "Liên kết kích hoạt không hợp lệ."
   password_resets:
-    new: 
+    new:
       title: "Quên mật khẩu"
-      submit: "Gửi hướng dẫn đặt lại mật khẩu"
+      email: "Email"
+      submit: "Gửi"
     edit:
       title: "Đặt lại mật khẩu"
       password: "Mật khẩu"
@@ -102,5 +122,6 @@ vi:
       email_not_found: "Không tìm thấy địa chỉ email."
     update:
       password_reset_success: "Mật khẩu đã được đặt lại."
+      password_reset_expired: "Link đặt lại mật khẩu đã hết hạn."
     check_expiration: 
       password_reset_expired: "Link đặt lại mật khẩu đã hết hạn."

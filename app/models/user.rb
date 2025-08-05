@@ -3,6 +3,7 @@ class User < ApplicationRecord
   NAME_LENGTH_MAX = 50
   EMAIL_LENGTH_MAX = 255
   PAGINATE_PER = 10
+  AVATAR_PROFILE_SIZE = 150
   AVATAR_SIZE_LIST = 50
   PASSWORD_RESET_EXPIRES_IN = 2.hours
   MAX_YEARS_AGO_FOR_BIRTHDAY = 100.years
@@ -12,6 +13,7 @@ avatar).freeze
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  has_many :microposts, dependent: :destroy
   has_one_attached :avatar
   has_secure_password
   enum gender: {female: 0, male: 1, other: 2}
@@ -79,6 +81,10 @@ length: {minimum: PASSWORD_LENGTH_MIN}, allow_nil: true
 
   def password_reset_expired?
     reset_sent_at < PASSWORD_RESET_EXPIRES_IN.ago
+  end
+
+  def feed
+    Micropost.where(user_id: id).newest
   end
 
   private
