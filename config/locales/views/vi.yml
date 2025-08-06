@@ -18,6 +18,9 @@ vi:
     please_log_in: "Vui lòng đăng nhập."
     not_authorized: "Bạn không có quyền thực hiện hành động này."
     require_admin: "Yêu cầu quyền quản trị viên."
+    stats:
+      following: "đang theo dõi"
+      followers: "người theo dõi"
   layouts:
     application:
       base_title: "Ứng dụng mẫu Ruby on Rails"
@@ -90,6 +93,10 @@ vi:
     destroy: 
       destroy_success: "Xóa người dùng thành công."  
       destroy_fail: "Xóa người dùng thất bại."
+    following:
+      title: "Đang theo dõi"
+    followers:
+      title: "Người theo dõi"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"
@@ -125,3 +132,5 @@ vi:
       password_reset_expired: "Link đặt lại mật khẩu đã hết hạn."
     check_expiration: 
       password_reset_expired: "Link đặt lại mật khẩu đã hết hạn."
+  relationships:
+    not_found: "Không tìm thấy quan hệ."

@@ -1,8 +1,24 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(index edit update destroy)
-  before_action :set_user,       only: %i(show edit update destroy)
+  before_action :logged_in_user,
+                only: %i(index edit update destroy following followers)
+  before_action :set_user,
+                only: %i(show edit update destroy following followers)
   before_action :correct_user,   only: %i(edit update)
   before_action :admin_user,     only: :destroy
+
+  # GET /users/:id/following
+  def following
+    @title = t(".title")
+    @pagy, @users = pagy(@user.following, items: User::PAGINATE_PER)
+    render "show_follow"
+  end
+
+  # GET /users/:id/followers
+  def followers
+    @title = t(".title")
+    @pagy, @users = pagy(@user.followers, items: User::PAGINATE_PER)
+    render "show_follow"
+  end
 
   # GET /users
   def index
